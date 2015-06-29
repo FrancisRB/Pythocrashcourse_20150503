@@ -74,11 +74,17 @@ its_unknow = readfasta(input_file)
 
 def remove_not_na(dict_sequence):
 
-    for key, val in dict_sequence.items()
+    for key, val in dict_sequence.items():
         dict_sequence[key] = ''.join([x for x in dict_sequence[key]
                                       if x in ['A','C','T','G']])
 
     return dist_sequence
+
+def remove_not_nucleicacid(dict_sequence):
+
+    return {key: ''.join([x for x in dict_sequence[key]
+                                      if x in ['A','C','T','G']])
+            for key, val in dict_sequence.items()}
 
 
 ### Second Exercice:
@@ -172,6 +178,7 @@ def translation(rna_seq):
         protein += aa    
 
     return protein
+  
 
 # Now use your function to translate
 # all sequence in its_unknow
